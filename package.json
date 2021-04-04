@@ -1,0 +1,39 @@
+{
+  "name": "@xizher/esri",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "copy": "npx ncp ./node_modules/@arcgis/core/assets ./__tests__/assets",
+    "test": "vite",
+    "build": "npx tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xizher/xizher-esri.git"
+  },
+  "keywords": [],
+  "author": "wuxizhe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xizher/xizher-esri/issues"
+  },
+  "homepage": "https://github.com/xizher/xizher-esri#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "@vitejs/plugin-vue": "^1.2.1",
+    "@vue/compiler-sfc": "^3.0.5",
+    "eslint": "^7.23.0",
+    "ncp": "^2.0.0",
+    "typescript": "^4.2.3",
+    "vite": "^2.1.5"
+  },
+  "dependencies": {
+    "@arcgis/core": "^4.18.1",
+    "@xizher/js-ext": "^1.0.0",
+    "@xizher/js-utils": "^1.0.0",
+    "@xizher/observer": "^1.0.2",
+    "vue": "^3.0.11"
+  }
+}
