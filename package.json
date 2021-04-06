@@ -1,6 +1,6 @@
 {
   "name": "@xizher/esri",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于ArcGIS API for JavaScirpt的业务功能型二次开发地图API",
   "main": "dist/index.js",
   "scripts": {
@@ -12,7 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/xizher/xizher-esri.git"
   },
-  "keywords": ["ArcGIS API for JavaScirpt 4.18+", "@arcgis/core", "TypeScript"],
+  "keywords": [
+    "ArcGIS API for JavaScirpt 4.18+",
+    "@arcgis/core",
+    "TypeScript"
+  ],
   "author": "wuxizhe",
   "license": "ISC",
   "bugs": {
