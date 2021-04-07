@@ -67,6 +67,10 @@ export class Basemap extends WebMapPlugin {
         createTianDiTuItem('影像', '4326')('矢量', '4326')('地形', '4326')('影像', '3857')('矢量', '3857')('地形', '3857');
         return this;
     }
+    /**
+     * 创建GeoQ底图项
+     * @returns this
+     */
     _createGeoQDiTu() {
         Object.entries(Basemap._GeoQUrls).forEach(([key, url]) => this._basemapItemPool.set(key, createCollection([createWebTileLayer(url)])));
         return this;

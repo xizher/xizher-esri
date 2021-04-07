@@ -1,8 +1,11 @@
+import Basemap from '@arcgis/core/Basemap'
 import ArcGISMap from '@arcgis/core/Map'
 import MapView from '@arcgis/core/views/MapView'
 import SceneView from '@arcgis/core/views/SceneView'
 import { baseUtils } from '@xizher/js-utils'
 import Observer from '@xizher/observer'
+import MapCursor from '../plugins/map-cursor/map-cursor'
+import MapElementDisplay from '../plugins/map-element-display/map-element-display'
 import WebMapPlugin from '../web-map-plugin/web-map-plugin'
 
 /** 地图对象接口 */
@@ -27,6 +30,14 @@ export interface IWebMapOptions {
 export class WebMap extends Observer<{
   'loaded': void
 }> {
+
+  //#region 公有属性（插件对象）
+
+  public basemap?: Basemap
+  public mapCursor?: MapCursor
+  public mapElementDisplay?: MapElementDisplay
+
+  //#endregion
 
   //#region 私有属性
 

@@ -1,5 +1,6 @@
 import WebMapPlugin from '../../web-map-plugin/web-map-plugin';
 import WebMap from '../../web-map/web-map';
+/** 底图控制插件配置项 */
 export interface IBasemapOptions {
     key?: string;
     visible?: boolean;
@@ -48,6 +49,10 @@ export declare class Basemap extends WebMapPlugin<{
      * @returns this
      */
     private _createTianDiTu;
+    /**
+     * 创建GeoQ底图项
+     * @returns this
+     */
     private _createGeoQDiTu;
     /**
      * 重写：安装插件
