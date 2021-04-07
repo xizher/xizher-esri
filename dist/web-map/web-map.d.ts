@@ -5,6 +5,7 @@ import SceneView from '@arcgis/core/views/SceneView';
 import Observer from '@xizher/observer';
 import MapCursor from '../plugins/map-cursor/map-cursor';
 import MapElementDisplay from '../plugins/map-element-display/map-element-display';
+import MapTools from '../plugins/map-tools/map-tools';
 import WebMapPlugin from '../web-map-plugin/web-map-plugin';
 /** 地图对象接口 */
 export interface IMap extends ArcGISMap {
@@ -29,6 +30,7 @@ export declare class WebMap extends Observer<{
     basemap?: Basemap;
     mapCursor?: MapCursor;
     mapElementDisplay?: MapElementDisplay;
+    mapTools?: MapTools;
     /** 地图目标容器Id */
     private _targetDiv;
     /** 地图对象 */

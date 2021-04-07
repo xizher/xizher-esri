@@ -10,9 +10,9 @@ import Graphic from '@arcgis/core/Graphic'
 
 /** 图元样式接口 */
 export interface IMapElementSymbol {
-  marker: __esri.SimpleMarkerSymbolProperties
-  line: __esri.SimpleLineSymbolProperties
-  fill: __esri.SimpleFillSymbolProperties
+  marker?: __esri.SimpleMarkerSymbolProperties
+  line?: __esri.SimpleLineSymbolProperties
+  fill?: __esri.SimpleFillSymbolProperties
 }
 
 /** 图元控制插件配置项 */
@@ -276,21 +276,21 @@ export class MapElementDisplay extends WebMapPlugin<{
    * @param symbolOptions 样式
    * @returns 图元对象
    */
-  public parseGraphics (geometry: __esri.Geometry, symbolOptions: __esri.Symbol) : __esri.Graphic | null
+  public parseGraphics (geometry: __esri.Geometry, symbolOptions?: __esri.SymbolProperties) : __esri.Graphic | null
   /**
    * 解析几何对象（基础）
    * @param geometries 几何对象
    * @param symbolOptions 样式
    * @returns 图元对象
    */
-  public parseGraphics (geometries: __esri.Geometry[], symbolOptions: __esri.Symbol) : __esri.Graphic[] | null
+  public parseGraphics (geometries: __esri.Geometry[], symbolOptions?: __esri.SymbolProperties) : __esri.Graphic[] | null
   /**
    * 解析几何对象（基础）
    * @param arg0 几何对象
    * @param symbolOptions 样式
    * @returns 图元对象
    */
-  public parseGraphics (arg0: __esri.Geometry | __esri.Geometry[], symbolOptions: __esri.Symbol) : __esri.Graphic | __esri.Graphic[] | null {
+  public parseGraphics (arg0: __esri.Geometry | __esri.Geometry[], symbolOptions?: __esri.SymbolProperties) : __esri.Graphic | __esri.Graphic[] | null {
     const geometryType = Array.isArray(arg0)
       ? arg0[0]?.type
       : arg0.type
@@ -315,7 +315,7 @@ export class MapElementDisplay extends WebMapPlugin<{
       default:
         break
     }
-    baseUtils.$extend(true, symbol, symbolOptions)
+    baseUtils.$extend(true, symbol, symbolOptions ?? {})
     return Array.isArray(arg0)
       ? arg0.map(geometry => new Graphic({ geometry, symbol }))
       : new Graphic({ geometry: arg0, symbol })
@@ -327,21 +327,21 @@ export class MapElementDisplay extends WebMapPlugin<{
    * @param symbolOptions 样式
    * @returns 图元对象
    */
-  public parseHighlight (geometry: __esri.Geometry, symbolOptions: __esri.Symbol) : __esri.Graphic | null
+  public parseHighlight (geometry: __esri.Geometry, symbolOptions?: __esri.SymbolProperties) : __esri.Graphic | null
   /**
    * 解析几何对象（高亮）
    * @param geometries 几何对象
    * @param symbolOptions 样式
    * @returns 图元对象
    */
-  public parseHighlight (geometries: __esri.Geometry[], symbolOptions: __esri.Symbol) : __esri.Graphic[] | null
+  public parseHighlight (geometries: __esri.Geometry[], symbolOptions?: __esri.SymbolProperties) : __esri.Graphic[] | null
   /**
    * 解析几何对象（高亮）
    * @param arg0 几何对象
    * @param symbolOptions 样式
    * @returns 图元对象
    */
-  public parseHighlight (arg0: __esri.Geometry | __esri.Geometry[], symbolOptions: __esri.Symbol) : __esri.Graphic | __esri.Graphic[] | null {
+  public parseHighlight (arg0: __esri.Geometry | __esri.Geometry[], symbolOptions?: __esri.SymbolProperties) : __esri.Graphic | __esri.Graphic[] | null {
     const geometryType = Array.isArray(arg0)
       ? arg0[0]?.type
       : arg0.type
@@ -366,7 +366,7 @@ export class MapElementDisplay extends WebMapPlugin<{
       default:
         break
     }
-    baseUtils.$extend(true, symbol, symbolOptions)
+    baseUtils.$extend(true, symbol, symbolOptions ?? {})
     return Array.isArray(arg0)
       ? arg0.map(geometry => new Graphic({ geometry, symbol }))
       : new Graphic({ geometry: arg0, symbol })

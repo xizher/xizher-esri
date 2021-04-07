@@ -176,7 +176,7 @@ export class MapElementDisplay extends WebMapPlugin {
             default:
                 break;
         }
-        baseUtils.$extend(true, symbol, symbolOptions);
+        baseUtils.$extend(true, symbol, symbolOptions ?? {});
         return Array.isArray(arg0)
             ? arg0.map(geometry => new Graphic({ geometry, symbol }))
             : new Graphic({ geometry: arg0, symbol });
@@ -212,7 +212,7 @@ export class MapElementDisplay extends WebMapPlugin {
             default:
                 break;
         }
-        baseUtils.$extend(true, symbol, symbolOptions);
+        baseUtils.$extend(true, symbol, symbolOptions ?? {});
         return Array.isArray(arg0)
             ? arg0.map(geometry => new Graphic({ geometry, symbol }))
             : new Graphic({ geometry: arg0, symbol });

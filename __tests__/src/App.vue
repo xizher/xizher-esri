@@ -9,7 +9,13 @@
 
 <script>
 import { onMounted, onUnmounted, ref } from 'vue'
-import { WebMap, MapCursor, Basemap } from '../../dist'
+import {
+  WebMap,
+  MapCursor,
+  Basemap,
+  MapElementDisplay,
+  MapTools,
+} from '../../dist'
 import BasemapControl from './components/BasemapControl.vue'
 export default {
   components: {
@@ -27,6 +33,8 @@ export default {
     })
       .use(new Basemap())
       .use(new MapCursor())
+      .use(new MapElementDisplay())
+      .use(new MapTools())
     const loaded = ref(false)
     const handler = webMap.on('loaded', () => {
       window.webMap = webMap

@@ -48,7 +48,6 @@ export class WebMap extends Observer {
     //#region 私有方法
     /** 初始化 */
     _init() {
-        console.log(this._options);
         const { mapOptions, viewOptions } = this._options;
         const map = new ArcGISMap(mapOptions);
         const view = this._options.mode === '3d'

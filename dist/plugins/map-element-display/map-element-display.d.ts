@@ -2,9 +2,9 @@ import WebMapPlugin from '../../web-map-plugin/web-map-plugin';
 import WebMap from '../../web-map/web-map';
 /** 图元样式接口 */
 export interface IMapElementSymbol {
-    marker: __esri.SimpleMarkerSymbolProperties;
-    line: __esri.SimpleLineSymbolProperties;
-    fill: __esri.SimpleFillSymbolProperties;
+    marker?: __esri.SimpleMarkerSymbolProperties;
+    line?: __esri.SimpleLineSymbolProperties;
+    fill?: __esri.SimpleFillSymbolProperties;
 }
 /** 图元控制插件配置项 */
 export interface IMapElementDisplayOptions {
@@ -103,27 +103,27 @@ export declare class MapElementDisplay extends WebMapPlugin<{}> {
      * @param symbolOptions 样式
      * @returns 图元对象
      */
-    parseGraphics(geometry: __esri.Geometry, symbolOptions: __esri.Symbol): __esri.Graphic | null;
+    parseGraphics(geometry: __esri.Geometry, symbolOptions?: __esri.SymbolProperties): __esri.Graphic | null;
     /**
      * 解析几何对象（基础）
      * @param geometries 几何对象
      * @param symbolOptions 样式
      * @returns 图元对象
      */
-    parseGraphics(geometries: __esri.Geometry[], symbolOptions: __esri.Symbol): __esri.Graphic[] | null;
+    parseGraphics(geometries: __esri.Geometry[], symbolOptions?: __esri.SymbolProperties): __esri.Graphic[] | null;
     /**
      * 解析几何对象（高亮）
      * @param geometry 几何对象
      * @param symbolOptions 样式
      * @returns 图元对象
      */
-    parseHighlight(geometry: __esri.Geometry, symbolOptions: __esri.Symbol): __esri.Graphic | null;
+    parseHighlight(geometry: __esri.Geometry, symbolOptions?: __esri.SymbolProperties): __esri.Graphic | null;
     /**
      * 解析几何对象（高亮）
      * @param geometries 几何对象
      * @param symbolOptions 样式
      * @returns 图元对象
      */
-    parseHighlight(geometries: __esri.Geometry[], symbolOptions: __esri.Symbol): __esri.Graphic[] | null;
+    parseHighlight(geometries: __esri.Geometry[], symbolOptions?: __esri.SymbolProperties): __esri.Graphic[] | null;
 }
 export default MapElementDisplay;

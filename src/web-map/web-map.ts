@@ -6,6 +6,7 @@ import { baseUtils } from '@xizher/js-utils'
 import Observer from '@xizher/observer'
 import MapCursor from '../plugins/map-cursor/map-cursor'
 import MapElementDisplay from '../plugins/map-element-display/map-element-display'
+import MapTools from '../plugins/map-tools/map-tools'
 import WebMapPlugin from '../web-map-plugin/web-map-plugin'
 
 /** 地图对象接口 */
@@ -36,6 +37,7 @@ export class WebMap extends Observer<{
   public basemap?: Basemap
   public mapCursor?: MapCursor
   public mapElementDisplay?: MapElementDisplay
+  public mapTools?: MapTools
 
   //#endregion
 
@@ -104,7 +106,6 @@ export class WebMap extends Observer<{
 
   /** 初始化 */
   private _init () : this {
-    console.log(this._options)
     const { mapOptions, viewOptions } = this._options
     const map = new ArcGISMap(mapOptions)
     const view = this._options.mode === '3d'
