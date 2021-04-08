@@ -5,6 +5,7 @@ import Point from '@arcgis/core/geometry/Point';
 import { IMapElementSymbol } from '../../../map-element-display/map-element-display';
 import Graphic from '@arcgis/core/Graphic';
 import { IObserverCallbackParams } from '@xizher/observer';
+import { MapCursorType } from '../../../map-cursor/map-cursor';
 export declare type DrawType = 'point' | 'multipoint' | 'polyline' | 'polygon' | 'rectangle' | 'circle' | 'ellipse';
 export declare type OnDrawStartParams<T> = IObserverCallbackParams<'draw-start', T> & {
     x: number;
@@ -44,6 +45,7 @@ export declare class DrawTool extends BaseTool<{
     private _drawType;
     /** 绘制目标是否仅允许存在一个 */
     private _onlyOneGraphic;
+    /** 绘制图元存储容器 */
     private _graphics;
     /** 绘制过程图元 */
     private _tempGraphic;
@@ -51,6 +53,7 @@ export declare class DrawTool extends BaseTool<{
     private _drawingStyle;
     /** 绘制完成样式 */
     private _drawedStyle;
+    protected cursorType_: MapCursorType;
     /**
      * 构造绘图工具对象
      * @param map 地图对象
@@ -63,6 +66,11 @@ export declare class DrawTool extends BaseTool<{
     private _initPointAction;
     /** 初始化线绘制任务 */
     private _initPolylineAction;
+    /** 初始化面绘制任务 */
+    private _initPolygonAction;
+    /** 初始化矩形绘制任务 */
+    private _initRectangleAction;
+    private _matchStyle;
     /** 重写：工具激活处理事件 */
     protected onToolActived_(e: OnToolActivedParams<this>): OnToolActivedReture;
     /** 重写：工具失活处理事件 */

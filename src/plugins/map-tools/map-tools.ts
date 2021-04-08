@@ -2,9 +2,11 @@ import WebMap from '../../web-map/web-map'
 import WebMapPlugin from '../../web-map-plugin/web-map-plugin'
 import BaseTool from './base-tool'
 import ZoomInTool from './tools/zoom/zoom-in'
+import ZoomInRectTool from './tools/zoom/zoom-in-rect'
 import ZoomOutTool from './tools/zoom/zoom-out'
 import ZoomHomeTool from './tools/zoom/zoom-home'
 import DrawTool from './tools/draw/draw-tool'
+import ZoomOutRectTool from './tools/zoom/zoom-out-rect'
 
 /** 地图工具链 */
 export class MapTools extends WebMapPlugin<{
@@ -52,8 +54,12 @@ export class MapTools extends WebMapPlugin<{
       .set('zoom-in', new ZoomInTool(this.map_, this.view_))
       .set('zoom-out', new ZoomOutTool(this.map_, this.view_))
       .set('zoom-home', new ZoomHomeTool(this.map_, this.view_))
-      .set('draw-point', new DrawTool(this.map_, this.view_, { drawType: 'point' }))
-      .set('draw-polyline', new DrawTool(this.map_, this.view_, { drawType: 'polyline' }))
+      // .set('draw-point', new DrawTool(this.map_, this.view_, { drawType: 'point' }))
+      // .set('draw-polyline', new DrawTool(this.map_, this.view_, { drawType: 'polyline' }))
+      // .set('draw-polygon', new DrawTool(this.map_, this.view_, { drawType: 'polygon' }))
+      // .set('draw-rectangle', new DrawTool(this.map_, this.view_, { drawType: 'rectangle' }))
+      .set('zoom-in-rect', new ZoomInRectTool(this.map_, this.view_))
+      .set('zoom-out-rect', new ZoomOutRectTool(this.map_, this.view_))
   }
 
   //#endregion
