@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "copy": "npx ncp ./node_modules/@arcgis/core/assets ./__tests__/assets",
+    "uml": "npx npx tplant --input src/**/*.ts --output tsuml.svg",
     "test": "vite",
     "build": "npx tsc -w"
   },
@@ -30,6 +31,7 @@
     "@vue/compiler-sfc": "^3.0.5",
     "eslint": "^7.23.0",
     "ncp": "^2.0.0",
+    "tplant": "^2.3.6",
     "typescript": "^4.2.3",
     "vite": "^2.1.5"
   },
