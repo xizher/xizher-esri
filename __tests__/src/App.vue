@@ -3,6 +3,7 @@
   <div :id="id"></div>
   <div v-if="loaded">
     <BasemapControl />
+    <BaseToolControl />
   </div>
 </div>
 </template>
@@ -17,9 +18,11 @@ import {
   MapTools,
 } from '../../dist'
 import BasemapControl from './components/BasemapControl.vue'
+import BaseToolControl from './components/BaseToolsControl.vue'
 export default {
   components: {
     BasemapControl,
+    BaseToolControl,
   },
   name: 'test',
   setup () {
