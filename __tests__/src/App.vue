@@ -16,6 +16,7 @@ import {
   Basemap,
   MapElementDisplay,
   MapTools,
+  LayerOperation,
 } from '../../dist'
 import BasemapControl from './components/BasemapControl.vue'
 import BaseToolControl from './components/BaseToolsControl.vue'
@@ -38,6 +39,68 @@ export default {
       .use(new MapCursor())
       .use(new MapElementDisplay())
       .use(new MapTools())
+      .use(new LayerOperation({
+        layerItems: [
+          {
+            name: '中国省级行政区划图',
+            type: 'geojson',
+            options: {
+              url: '/sample-data/china_100000_full.json',
+              renderer: {
+                type: "simple",
+                symbol: {
+                  type: "simple-fill",
+                  color: [0, 0, 0, 0],
+                  outline: {
+                    width: 0.5,
+                    color: "black"
+                  }
+                }
+              }
+            }
+          },
+          {
+            name: '广州区县级行政区划/wms',
+            type: 'wms',
+            options: {
+              url: 'http://wuxizhe.fun:8080/geoserver/webgis-ol-base/wms',
+              version: '1.1.1',
+              sublayers: [
+                { name: 'webgis-ol-base:boundary' }
+              ]
+            }
+          },
+          // {
+          //   name: '广州区县级行政区划',
+          //   type: 'wfs',
+          //   options: {
+          //     url: 'http://wuxizhe.fun:8080/geoserver/webgis-ol-base/ows',
+          //     collectionId: "boundary"
+          //   }
+          // },
+          // {
+          //   name: '广佛地铁线路',
+          //   type: 'kml',
+          //   options: {
+          //     url: 'http://wuxizhe.fun:8080/geoserver/webgis-ol-base/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=webgis-ol-base:subway&outputFormat=application/vnd.google-earth.kml+xml',
+          //   }
+          // },
+          // {
+          //   name: '广佛地铁站点',
+          //   type: 'kml',
+          //   options: {
+          //     url: 'http://wuxizhe.fun:8080/geoserver/webgis-ol-base/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=webgis-ol-base:stations&outputFormat=application/vnd.google-earth.kml+xml',
+          //   }
+          // },
+          // {
+          //   name: '地震数据',
+          //   type: 'csv',
+          //   options: {
+          //     url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.csv',
+          //   }
+          // }
+        ]
+      }))
     const loaded = ref(false)
     const handler = webMap.on('loaded', () => {
       window.webMap = webMap

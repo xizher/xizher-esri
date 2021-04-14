@@ -4,6 +4,7 @@ import MapView from '@arcgis/core/views/MapView'
 import SceneView from '@arcgis/core/views/SceneView'
 import { baseUtils } from '@xizher/js-utils'
 import Observer from '@xizher/observer'
+import LayerOperation from '../plugins/layer-operation/layer-operation'
 import MapCursor from '../plugins/map-cursor/map-cursor'
 import MapElementDisplay from '../plugins/map-element-display/map-element-display'
 import MapTools from '../plugins/map-tools/map-tools'
@@ -38,6 +39,7 @@ export class WebMap extends Observer<{
   public mapCursor?: MapCursor
   public mapElementDisplay?: MapElementDisplay
   public mapTools?: MapTools
+  public layerOperation?: LayerOperation
 
   //#endregion
 

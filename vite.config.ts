@@ -5,7 +5,14 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   root: '__tests__',
   server: {
-    port: 8080
+    port: 8080,
+    proxy: {
+      '/sample-data': {
+        target: 'http://localhost/arcgisjsapi/sample-data',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/sample-data/, ''),
+      },
+    }
   },
   plugins: [
     vue(),

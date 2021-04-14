@@ -3,6 +3,7 @@ import ArcGISMap from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import SceneView from '@arcgis/core/views/SceneView';
 import Observer from '@xizher/observer';
+import LayerOperation from '../plugins/layer-operation/layer-operation';
 import MapCursor from '../plugins/map-cursor/map-cursor';
 import MapElementDisplay from '../plugins/map-element-display/map-element-display';
 import MapTools from '../plugins/map-tools/map-tools';
@@ -31,6 +32,7 @@ export declare class WebMap extends Observer<{
     mapCursor?: MapCursor;
     mapElementDisplay?: MapElementDisplay;
     mapTools?: MapTools;
+    layerOperation?: LayerOperation;
     /** 地图目标容器Id */
     private _targetDiv;
     /** 地图对象 */
