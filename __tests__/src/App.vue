@@ -4,6 +4,7 @@
   <div v-if="loaded">
     <BasemapControl />
     <BaseToolControl />
+    <ToolBoxControl />
   </div>
 </div>
 </template>
@@ -20,10 +21,12 @@ import {
 } from '../../dist'
 import BasemapControl from './components/BasemapControl.vue'
 import BaseToolControl from './components/BaseToolsControl.vue'
+import ToolBoxControl from './components/ToolBoxControl.vue'
 export default {
   components: {
     BasemapControl,
     BaseToolControl,
+    ToolBoxControl,
   },
   name: 'test',
   setup () {
@@ -33,7 +36,7 @@ export default {
         center: [113, 23],
         zoom: 6,
       },
-      // mode: '3d'
+      // mode: '3d',
     })
       .use(new Basemap())
       .use(new MapCursor())
