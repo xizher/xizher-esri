@@ -26,6 +26,8 @@ export interface IWebMapOptions {
   mode?: Mode
   mapOptions?: __esri.MapProperties
   viewOptions?: __esri.MapViewProperties | __esri.SceneViewProperties
+  debug?: boolean
+  debugName?: string
 }
 
 /** WebMap类 */
@@ -67,7 +69,9 @@ export class WebMap extends Observer<{
       //   baseLayers: []
       // }
       // basemap: 'streets-navigation-vector'
-    }
+    },
+    debug: false,
+    debugName: 'webMap'
   }
 
   //#endregion
@@ -108,13 +112,16 @@ export class WebMap extends Observer<{
 
   /** 初始化 */
   private _init () : this {
-    const { mapOptions, viewOptions } = this._options
+    const { mapOptions, viewOptions, debug, debugName } = this._options
     const map = new ArcGISMap(mapOptions)
     const view = this._options.mode === '3d'
       ? new SceneView({ ...(viewOptions as __esri.SceneViewProperties), map })
       : new MapView({ ...viewOptions, map })
     this._view = Object.assign(view, { $owner: this })
     this._map = Object.assign(map, { $owner: this })
+    if (debug) {
+      window[debugName] = this
+    }
     return this
   }
 
