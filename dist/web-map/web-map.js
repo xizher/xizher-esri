@@ -27,7 +27,9 @@ export class WebMap extends Observer {
             //   baseLayers: []
             // }
             // basemap: 'streets-navigation-vector'
-            }
+            },
+            debug: false,
+            debugName: 'webMap'
         };
         this._targetDiv = targetDiv;
         baseUtils.$extend(true, this._options, options);
@@ -48,13 +50,16 @@ export class WebMap extends Observer {
     //#region 私有方法
     /** 初始化 */
     _init() {
-        const { mapOptions, viewOptions } = this._options;
+        const { mapOptions, viewOptions, debug, debugName } = this._options;
         const map = new ArcGISMap(mapOptions);
         const view = this._options.mode === '3d'
             ? new SceneView({ ...viewOptions, map })
             : new MapView({ ...viewOptions, map });
         this._view = Object.assign(view, { $owner: this });
         this._map = Object.assign(map, { $owner: this });
+        if (debug) {
+            window[debugName] = this;
+        }
         return this;
     }
     //#endregion

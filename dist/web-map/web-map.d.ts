@@ -23,6 +23,8 @@ export interface IWebMapOptions {
     mode?: Mode;
     mapOptions?: __esri.MapProperties;
     viewOptions?: __esri.MapViewProperties | __esri.SceneViewProperties;
+    debug?: boolean;
+    debugName?: string;
 }
 /** WebMap类 */
 export declare class WebMap extends Observer<{
