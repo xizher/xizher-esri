@@ -68,6 +68,9 @@ export class MapElementDisplay extends WebMapPlugin {
             layers: [this._graphicsLayer, this._highlightLayer]
         });
         this.map_.layers.add(this._groupLayer);
+        this.map_.$owner.on('loaded', () => {
+            this.map_.layers.reorder(this._groupLayer, this.map_.layers.length - 1);
+        });
         return this;
     }
     //#endregion
