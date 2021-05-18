@@ -4,7 +4,7 @@ import Point from '@arcgis/core/geometry/Point';
 import Polyline from '@arcgis/core/geometry/Polyline';
 import Polygon from '@arcgis/core/geometry/Polygon';
 import { baseUtils } from '@xizher/js-utils';
-import Extent from '@arcgis/core/geometry/Extent';
+import { createExtent } from '../../../../utilities/base.utilities';
 /** 绘图工具类 */
 export class DrawTool extends BaseTool {
     //#endregion
@@ -130,14 +130,6 @@ export class DrawTool extends BaseTool {
     }
     /** 初始化矩形绘制任务 */
     _initRectangleAction() {
-        const createExtent = (pt1, pt2) => {
-            let [xmin, ymin] = pt1, [xmax, ymax] = pt2;
-            xmin > xmax && ([xmin, xmax] = [xmax, xmin]);
-            ymin > ymax && ([ymin, ymax] = [ymax, ymin]);
-            return new Extent({
-                xmin, ymin, xmax, ymax, spatialReference: this.view_.spatialReference
-            });
-        };
         this._action = this._draw.create('rectangle');
         this._action.on(['vertex-add', 'cursor-update'], e => {
             const rings = e.vertices;
@@ -145,7 +137,7 @@ export class DrawTool extends BaseTool {
                 e.type === 'vertex-add' && this.fire('draw-start', { x: rings[0][0], y: rings[0][1] });
                 return;
             }
-            const geometry = createExtent(rings[0], rings[1]);
+            const geometry = createExtent(rings[0], rings[1], this.view_.spatialReference);
             this.fire('draw-move', { geometry });
         });
         this._action.on('draw-complete', e => {
@@ -154,7 +146,7 @@ export class DrawTool extends BaseTool {
                 this._initAction();
                 return;
             }
-            const geometry = createExtent(rings[0], rings[1]);
+            const geometry = createExtent(rings[0], rings[1], this.view_.spatialReference);
             this.fire('draw-end', { geometry });
         });
         return this;
