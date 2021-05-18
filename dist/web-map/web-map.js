@@ -3,6 +3,7 @@ import MapView from '@arcgis/core/views/MapView';
 import SceneView from '@arcgis/core/views/SceneView';
 import { baseUtils } from '@xizher/js-utils';
 import Observer from '@xizher/observer';
+import esriConfig from '@arcgis/core/config';
 /** WebMap类 */
 export class WebMap extends Observer {
     //#endregion
@@ -29,7 +30,8 @@ export class WebMap extends Observer {
             // basemap: 'streets-navigation-vector'
             },
             debug: false,
-            debugName: 'webMap'
+            debugName: 'webMap',
+            assetsPath: 'https://js.arcgis.com/4.19/@arcgis/core/assets'
         };
         this._targetDiv = targetDiv;
         baseUtils.$extend(true, this._options, options);
@@ -50,7 +52,8 @@ export class WebMap extends Observer {
     //#region 私有方法
     /** 初始化 */
     _init() {
-        const { mapOptions, viewOptions, debug, debugName } = this._options;
+        const { mapOptions, viewOptions, debug, debugName, assetsPath } = this._options;
+        esriConfig.assetsPath = assetsPath;
         const map = new ArcGISMap(mapOptions);
         const view = this._options.mode === '3d'
             ? new SceneView({ ...viewOptions, map })

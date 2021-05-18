@@ -37,6 +37,7 @@ export default {
         zoom: 6,
       },
       // mode: '3d',
+      // assetsPath: './src/assets'
     })
       .use(new Basemap())
       .use(new MapCursor())

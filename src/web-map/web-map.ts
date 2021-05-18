@@ -9,6 +9,7 @@ import MapCursor from '../plugins/map-cursor/map-cursor'
 import MapElementDisplay from '../plugins/map-element-display/map-element-display'
 import MapTools from '../plugins/map-tools/map-tools'
 import WebMapPlugin from '../web-map-plugin/web-map-plugin'
+import esriConfig from '@arcgis/core/config'
 
 /** 地图对象接口 */
 export interface IMap extends ArcGISMap {
@@ -28,6 +29,7 @@ export interface IWebMapOptions {
   viewOptions?: __esri.MapViewProperties | __esri.SceneViewProperties
   debug?: boolean
   debugName?: string
+  assetsPath?: string
 }
 
 /** WebMap类 */
@@ -71,7 +73,8 @@ export class WebMap extends Observer<{
       // basemap: 'streets-navigation-vector'
     },
     debug: false,
-    debugName: 'webMap'
+    debugName: 'webMap',
+    assetsPath: 'https://js.arcgis.com/4.19/@arcgis/core/assets'
   }
 
   //#endregion
@@ -112,7 +115,8 @@ export class WebMap extends Observer<{
 
   /** 初始化 */
   private _init () : this {
-    const { mapOptions, viewOptions, debug, debugName } = this._options
+    const { mapOptions, viewOptions, debug, debugName, assetsPath } = this._options
+    esriConfig.assetsPath = assetsPath
     const map = new ArcGISMap(mapOptions)
     const view = this._options.mode === '3d'
       ? new SceneView({ ...(viewOptions as __esri.SceneViewProperties), map })

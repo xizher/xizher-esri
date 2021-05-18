@@ -25,6 +25,7 @@ export interface IWebMapOptions {
     viewOptions?: __esri.MapViewProperties | __esri.SceneViewProperties;
     debug?: boolean;
     debugName?: string;
+    assetsPath?: string;
 }
 /** WebMap类 */
 export declare class WebMap extends Observer<{
