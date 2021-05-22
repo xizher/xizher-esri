@@ -1,5 +1,5 @@
 import WebMapPlugin from '../../web-map-plugin/web-map-plugin'
-import { baseUtils } from '@xizher/js-utils'
+import { baseUtils } from '@xizher/js-utils/dist/utilities/base.utilities'
 import { createCollection } from '../../utilities/base.utilities'
 import WebMap from '../../web-map/web-map'
 import { createWebTileLayer } from '../../utilities/layer.utilities'

@@ -8,7 +8,7 @@ import Polyline from '@arcgis/core/geometry/Polyline'
 import Polygon from '@arcgis/core/geometry/Polygon'
 import { IMapElementSymbol } from '../../../map-element-display/map-element-display'
 import Graphic from '@arcgis/core/Graphic'
-import { baseUtils } from '@xizher/js-utils'
+import { baseUtils } from '@xizher/js-utils/dist/utilities/base.utilities'
 import { IObserverCallbackParams } from '@xizher/observer'
 import { MapCursorType } from '../../../map-cursor/map-cursor'
 import { createExtent } from '../../../../utilities/base.utilities'
@@ -217,6 +217,11 @@ export class DrawTool extends BaseTool<{
       const geometry = createExtent(rings[0], rings[1], this.view_.spatialReference)
       this.fire('draw-end', { geometry })
     })
+    return this
+  }
+
+  private _initCircleAction () : this {
+    this._action = this._draw.create('circle')
     return this
   }
 

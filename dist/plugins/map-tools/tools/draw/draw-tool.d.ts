@@ -70,6 +70,7 @@ export declare class DrawTool extends BaseTool<{
     private _initPolygonAction;
     /** 初始化矩形绘制任务 */
     private _initRectangleAction;
+    private _initCircleAction;
     private _matchStyle;
     /** 重写：工具激活处理事件 */
     protected onToolActived_(e: OnToolActivedParams<this>): OnToolActivedReture;

@@ -3,7 +3,7 @@ import Draw from '@arcgis/core/views/draw/Draw';
 import Point from '@arcgis/core/geometry/Point';
 import Polyline from '@arcgis/core/geometry/Polyline';
 import Polygon from '@arcgis/core/geometry/Polygon';
-import { baseUtils } from '@xizher/js-utils';
+import { baseUtils } from '@xizher/js-utils/dist/utilities/base.utilities';
 import { createExtent } from '../../../../utilities/base.utilities';
 /** 绘图工具类 */
 export class DrawTool extends BaseTool {
@@ -149,6 +149,10 @@ export class DrawTool extends BaseTool {
             const geometry = createExtent(rings[0], rings[1], this.view_.spatialReference);
             this.fire('draw-end', { geometry });
         });
+        return this;
+    }
+    _initCircleAction() {
+        this._action = this._draw.create('circle');
         return this;
     }
     _matchStyle(geometry, symbolOptions) {
