@@ -1,5 +1,5 @@
 import GroupLayer from '@arcgis/core/layers/GroupLayer';
-import { baseUtils } from '@xizher/js-utils/dist/utilities/base.utilities';
+import * as baseUtils from '@xizher/js-utils/dist/utilities/base.utilities';
 import WebMapPlugin from '../../web-map-plugin/web-map-plugin';
 import GeoJSONLayer from '@arcgis/core/layers/GeoJSONLayer';
 import WMSLayer from '@arcgis/core/layers/WMSLayer';
