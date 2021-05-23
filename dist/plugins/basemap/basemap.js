@@ -1,5 +1,5 @@
 import WebMapPlugin from '../../web-map-plugin/web-map-plugin';
-import { baseUtils } from '@xizher/core/es/utils';
+import * as baseUtils from '@xizher/core/es/utils/base.utils';
 import { createCollection } from '../../utilities/base.utilities';
 import { createWebTileLayer } from '../../utilities/layer.utilities';
 import EsriBasemap from '@arcgis/core/Basemap';

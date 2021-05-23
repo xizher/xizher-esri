@@ -1,5 +1,5 @@
 import { onUnmounted, reactive, ref, watch } from 'vue';
-import { baseUtils } from '@xizher/core/es/utils';
+import * as baseUtils from '@xizher/core/es/utils/base.utils';
 /**
  * 地图工具链钩子
  * @param mapTools 地图工具链插件对象

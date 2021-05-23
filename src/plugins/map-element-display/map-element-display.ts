@@ -1,4 +1,4 @@
-import { baseUtils } from '@xizher/core/es/utils'
+import * as baseUtils from '@xizher/core/es/utils/base.utils'
 import WebMapPlugin from '../../web-map-plugin/web-map-plugin'
 import WebMap from '../../web-map/web-map'
 import GraphicsLayer from '@arcgis/core/layers/GraphicsLayer'

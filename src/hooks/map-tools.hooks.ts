@@ -1,5 +1,5 @@
 import { onUnmounted, reactive, Ref, ref, watch } from 'vue'
-import { baseUtils } from '@xizher/core/es/utils'
+import * as baseUtils from '@xizher/core/es/utils/base.utils'
 import BaseTool from '../plugins/map-tools/base-tool'
 import { MapTools } from '../plugins/map-tools/map-tools'
 

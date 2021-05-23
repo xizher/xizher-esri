@@ -3,7 +3,7 @@ import Draw from '@arcgis/core/views/draw/Draw';
 import Point from '@arcgis/core/geometry/Point';
 import Polyline from '@arcgis/core/geometry/Polyline';
 import Polygon from '@arcgis/core/geometry/Polygon';
-import { baseUtils } from '@xizher/core/es/utils';
+import * as baseUtils from '@xizher/core/es/utils/base.utils';
 import { createExtent } from '../../../../utilities/base.utilities';
 /** 绘图工具类 */
 export class DrawTool extends BaseTool {

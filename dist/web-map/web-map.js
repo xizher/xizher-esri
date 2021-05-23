@@ -1,7 +1,7 @@
 import ArcGISMap from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import SceneView from '@arcgis/core/views/SceneView';
-import { baseUtils } from '@xizher/core/es/utils';
+import * as baseUtils from '@xizher/core/es/utils/base.utils';
 import Evented from '@xizher/core/es/evented';
 import esriConfig from '@arcgis/core/config';
 /** WebMap类 */
