@@ -1,7 +1,7 @@
-import ToolBase, { IToolBaseEvent, OnDoneParams, OnExecutingParams } from '../tool.base'
+import BaseTask, { IBaseTaskEvent, OnDoneParams, OnExecutingParams } from '../base-task'
 
 /** 定位工具类 */
-export class ToolLocate extends ToolBase<IToolBaseEvent<GeolocationPosition>> {
+export class LocateTask extends BaseTask<IBaseTaskEvent<GeolocationPosition>> {
 
   //#region 私有属性
 
@@ -51,4 +51,4 @@ export class ToolLocate extends ToolBase<IToolBaseEvent<GeolocationPosition>> {
 
 }
 
-export default ToolLocate
+export default BaseTask

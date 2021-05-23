@@ -1,6 +1,6 @@
-import Observer from '@xizher/core/es/evented';
+import Evented from '@xizher/core/es/evented';
 /** 基础工具类 */
-export class ToolBase extends Observer {
+export class BaseTask extends Evented {
     //#endregion
     //#region 构造函数
     /**
@@ -38,4 +38,4 @@ export class ToolBase extends Observer {
         this.fire('executing');
     }
 }
-export default ToolBase;
+export default BaseTask;

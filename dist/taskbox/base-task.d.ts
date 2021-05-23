@@ -1,9 +1,9 @@
-import Observer, { ICallbackParams } from '@xizher/core/es/evented';
+import Evented, { ICallbackParams } from '@xizher/core/es/evented';
 import WebMap from '../web-map/web-map';
 export declare type OnResetParams<T> = ICallbackParams<'reset', T>;
 export declare type OnDoneParams<T> = ICallbackParams<'done', T>;
 export declare type OnExecutingParams<T> = ICallbackParams<'executing', T>;
-export interface IToolBaseEvent<T> {
+export interface IBaseTaskEvent<T> {
     'reset': void;
     'done': {
         success: true;
@@ -15,7 +15,7 @@ export interface IToolBaseEvent<T> {
     'executing': void;
 }
 /** 基础工具类 */
-export declare class ToolBase<T extends IToolBaseEvent<unknown>> extends Observer<T & IToolBaseEvent<unknown>> {
+export declare class BaseTask<T extends IBaseTaskEvent<unknown>> extends Evented<T & IBaseTaskEvent<unknown>> {
     /** WebMap对象 */
     protected webMap_: WebMap;
     /**
@@ -32,4 +32,4 @@ export declare class ToolBase<T extends IToolBaseEvent<unknown>> extends Observe
     reset(): void;
     execute(): void;
 }
-export default ToolBase;
+export default BaseTask;

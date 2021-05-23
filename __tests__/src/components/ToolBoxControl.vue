@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import ToolLocate from '../../../dist/toolbox/tools/tool.locate'
+import ToolLocate from '../../../dist/taskbox/tasks/locate.task'
 /** @type { import('../../../dist/web-map/web-map').WebMap */
 const webMap = window.webMap
 const toolLocate = new ToolLocate(webMap)

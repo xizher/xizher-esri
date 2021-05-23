@@ -1,6 +1,6 @@
-import ToolBase from '../tool.base';
+import BaseTask from '../base-task';
 /** 定位工具类 */
-export class ToolLocate extends ToolBase {
+export class LocateTask extends BaseTask {
     constructor() {
         //#region 私有属性
         super(...arguments);
@@ -37,4 +37,4 @@ export class ToolLocate extends ToolBase {
         // console
     }
 }
-export default ToolLocate;
+export default BaseTask;
