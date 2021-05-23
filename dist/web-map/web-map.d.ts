@@ -2,7 +2,7 @@ import Basemap from '@arcgis/core/Basemap';
 import ArcGISMap from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import SceneView from '@arcgis/core/views/SceneView';
-import Observer from '@xizher/observer';
+import Evented from '@xizher/core/es/evented';
 import LayerOperation from '../plugins/layer-operation/layer-operation';
 import MapCursor from '../plugins/map-cursor/map-cursor';
 import MapElementDisplay from '../plugins/map-element-display/map-element-display';
@@ -28,7 +28,7 @@ export interface IWebMapOptions {
     assetsPath?: string;
 }
 /** WebMap类 */
-export declare class WebMap extends Observer<{
+export declare class WebMap extends Evented<{
     'loaded': void;
 }> {
     basemap?: Basemap;

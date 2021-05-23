@@ -1,8 +1,8 @@
-import Observer from '@xizher/observer'
+import Evented from '@xizher/core/es/evented'
 import WebMap, { IMap, IView } from '../web-map/web-map'
 
 /** WebMap插件类 */
-class WebMapPlugin<T> extends Observer<T> {
+class WebMapPlugin<T> extends Evented<T> {
 
   //#region 私有属性
 

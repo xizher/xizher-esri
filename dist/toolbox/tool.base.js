@@ -1,4 +1,4 @@
-import Observer from '@xizher/observer';
+import Observer from '@xizher/core/es/evented';
 /** 基础工具类 */
 export class ToolBase extends Observer {
     //#endregion

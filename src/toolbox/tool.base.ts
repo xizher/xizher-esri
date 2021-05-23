@@ -1,9 +1,9 @@
-import Observer, { IObserverCallbackParams } from '@xizher/observer'
+import Observer, { ICallbackParams } from '@xizher/core/es/evented'
 import WebMap from '../web-map/web-map'
 
-export type OnResetParams<T> = IObserverCallbackParams<'reset', T>
-export type OnDoneParams<T> = IObserverCallbackParams<'done', T>
-export type OnExecutingParams<T> = IObserverCallbackParams<'executing', T>
+export type OnResetParams<T> = ICallbackParams<'reset', T>
+export type OnDoneParams<T> = ICallbackParams<'done', T>
+export type OnExecutingParams<T> = ICallbackParams<'executing', T>
 
 export interface IToolBaseEvent<T> {
   'reset': void

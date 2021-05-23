@@ -1,6 +1,6 @@
-import Observer from '@xizher/observer';
+import Evented from '@xizher/core/es/evented';
 /** WebMap插件类 */
-class WebMapPlugin extends Observer {
+class WebMapPlugin extends Evented {
     //#endregion
     //#region 构造函数
     /**

@@ -8,16 +8,16 @@ import Polyline from '@arcgis/core/geometry/Polyline'
 import Polygon from '@arcgis/core/geometry/Polygon'
 import { IMapElementSymbol } from '../../../map-element-display/map-element-display'
 import Graphic from '@arcgis/core/Graphic'
-import * as baseUtils from '@xizher/js-utils/dist/utilities/base.utilities'
-import { IObserverCallbackParams } from '@xizher/observer'
+import { baseUtils } from '@xizher/core/es/utils'
+import { ICallbackParams } from '@xizher/core/es/evented'
 import { MapCursorType } from '../../../map-cursor/map-cursor'
 import { createExtent } from '../../../../utilities/base.utilities'
 
 export type DrawType = 'point' | 'multipoint' | 'polyline' | 'polygon' | 'rectangle' | 'circle' | 'ellipse'
 
-export type OnDrawStartParams<T> = IObserverCallbackParams<'draw-start', T> & { x: number, y: number }
-export type OnDrawMoveParams<T> = IObserverCallbackParams<'draw-move', T> & { geometry: Geometry }
-export type OnDrawEndParams<T> = IObserverCallbackParams<'draw-end', T> & { geometry: Geometry }
+export type OnDrawStartParams<T> = ICallbackParams<'draw-start', T> & { x: number, y: number }
+export type OnDrawMoveParams<T> = ICallbackParams<'draw-move', T> & { geometry: Geometry }
+export type OnDrawEndParams<T> = ICallbackParams<'draw-end', T> & { geometry: Geometry }
 export type OnDrawStartReture = Point | false
 export type OnDrawMoveReture = Graphic | false
 export type OnDrawEndReture = Graphic | false

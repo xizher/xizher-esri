@@ -38,9 +38,7 @@
   },
   "dependencies": {
     "@arcgis/core": "^4.19.3",
-    "@xizher/js-ext": "^1.0.1",
-    "@xizher/js-utils": "^1.1.6",
-    "@xizher/observer": "^1.1.1",
+    "@xizher/core": "^1.4.1",
     "vue": "^3.0.11"
   }
 }
