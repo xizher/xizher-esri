@@ -1,4 +1,4 @@
-import { onUnmounted, reactive, Ref, ref, watch } from 'vue'
+import { onUnmounted, reactive, Ref, ref, watch } from '@vue/composition-api'
 import * as baseUtils from '@xizher/core/es/utils/base.utils'
 import BaseTool from '../plugins/map-tools/base-tool'
 import { MapTools } from '../plugins/map-tools/map-tools'

@@ -12,6 +12,10 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "allowJs": true,
+    "baseUrl": "./",
+    "paths": {
+      "@vue/composition-api": ["node_modules/vue"]
+    }
   },
   "include": [
     "src/**/*.ts",

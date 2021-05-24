@@ -1,5 +1,5 @@
 import Basemap from '../plugins/basemap/basemap'
-import { ref, Ref, watch } from 'vue'
+import { ref, Ref, watch } from '@vue/composition-api'
 
 /** 底图控制Key值钩子 */
 export function useKey (basemap: Basemap) : Ref<string> {
