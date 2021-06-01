@@ -1,5 +1,5 @@
 import Basemap from '../plugins/basemap/basemap';
-import { Ref } from 'vue';
+import { Ref } from 'vue-demi';
 /** 底图控制Key值钩子 */
 export declare function useKey(basemap: Basemap): Ref<string>;
 /** 底图控制可见性钩子 */

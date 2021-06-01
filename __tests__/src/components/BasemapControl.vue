@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import {  } from 'vue'
 import useBasemap from '../../../dist/hooks/basemap.hooks'
 export default {
   name: 'BasemapControl',

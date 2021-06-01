@@ -1,4 +1,4 @@
-import { onUnmounted, reactive, ref, watch } from 'vue';
+import { onUnmounted, reactive, ref, watch } from 'vue-demi';
 import * as baseUtils from '@xizher/core/es/utils/base.utils';
 /**
  * 地图工具链钩子

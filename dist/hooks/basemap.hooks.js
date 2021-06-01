@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue';
+import { ref, watch } from 'vue-demi';
 /** 底图控制Key值钩子 */
 export function useKey(basemap) {
     const key = ref(basemap.key);

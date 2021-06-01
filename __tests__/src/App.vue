@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue-demi'
 import {
   WebMap,
   MapCursor,

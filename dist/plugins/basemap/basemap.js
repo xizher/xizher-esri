@@ -13,7 +13,7 @@ export class Basemap extends WebMapPlugin {
      * 构造底图控制插件类
      * @param options 配置项
      */
-    constructor(options) {
+    constructor(options = {}) {
         super('basemap');
         //#endregion
         /** 底图项容器池 */

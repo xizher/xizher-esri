@@ -1,4 +1,4 @@
-import { Ref } from 'vue';
+import { Ref } from 'vue-demi';
 import BaseTool from '../plugins/map-tools/base-tool';
 import { MapTools } from '../plugins/map-tools/map-tools';
 /**
