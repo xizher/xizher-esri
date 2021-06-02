@@ -1,4 +1,4 @@
-import Evented, { ICallbackParams } from '@xizher/core/es/evented'
+import Observable, { ICallbackParams } from '@xizher/core/es/observable'
 import { IMap, IView } from '../../web-map/web-map'
 
 export type OnToolActivedParams<T> = ICallbackParams<'tool-actived', T>
@@ -7,7 +7,7 @@ export type OnToolActivedReture = boolean
 export type OnToolDeActivedReture = boolean
 
 /** 基础工具类 */
-export class BaseTool<T = unknown> extends Evented<T & { // eslint-disable-line @typescript-eslint/ban-types
+export class BaseTool<T = unknown> extends Observable<T & { // eslint-disable-line @typescript-eslint/ban-types
   'tool-actived': void // 工具打开
   'tool-deactived': void // 工具关闭
 }> {

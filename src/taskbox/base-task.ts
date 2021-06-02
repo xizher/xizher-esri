@@ -1,4 +1,4 @@
-import Evented, { ICallbackParams } from '@xizher/core/es/evented'
+import Observable, { ICallbackParams } from '@xizher/core/es/observable'
 import WebMap from '../web-map/web-map'
 
 export type OnResetParams<T> = ICallbackParams<'reset', T>
@@ -18,7 +18,7 @@ export interface IBaseTaskEvent<T> {
 }
 
 /** 基础工具类 */
-export class BaseTask<T extends IBaseTaskEvent<unknown>> extends Evented<T & IBaseTaskEvent<unknown>> {
+export class BaseTask<T extends IBaseTaskEvent<unknown>> extends Observable<T & IBaseTaskEvent<unknown>> {
 
   //#region 保护属性
 

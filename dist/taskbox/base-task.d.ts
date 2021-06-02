@@ -1,4 +1,4 @@
-import Evented, { ICallbackParams } from '@xizher/core/es/evented';
+import Observable, { ICallbackParams } from '@xizher/core/es/observable';
 import WebMap from '../web-map/web-map';
 export declare type OnResetParams<T> = ICallbackParams<'reset', T>;
 export declare type OnDoneParams<T> = ICallbackParams<'done', T>;
@@ -15,7 +15,7 @@ export interface IBaseTaskEvent<T> {
     'executing': void;
 }
 /** 基础工具类 */
-export declare class BaseTask<T extends IBaseTaskEvent<unknown>> extends Evented<T & IBaseTaskEvent<unknown>> {
+export declare class BaseTask<T extends IBaseTaskEvent<unknown>> extends Observable<T & IBaseTaskEvent<unknown>> {
     /** WebMap对象 */
     protected webMap_: WebMap;
     /**

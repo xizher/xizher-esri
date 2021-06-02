@@ -1,7 +1,7 @@
-import Evented from '@xizher/core/es/evented';
+import Observable from '@xizher/core/es/observable';
 import WebMap, { IMap, IView } from '../web-map/web-map';
 /** WebMap插件类 */
-declare class WebMapPlugin<T> extends Evented<T> {
+declare class WebMapPlugin<T> extends Observable<T> {
     /** 插件对象名 */
     private _pluginName;
     /** 地图对象 */

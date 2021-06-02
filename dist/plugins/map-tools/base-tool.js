@@ -1,6 +1,6 @@
-import Evented from '@xizher/core/es/evented';
+import Observable from '@xizher/core/es/observable';
 /** 基础工具类 */
-export class BaseTool extends Evented {
+export class BaseTool extends Observable {
     //#endregion
     //#region 构造函数
     /**

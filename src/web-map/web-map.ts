@@ -3,7 +3,7 @@ import ArcGISMap from '@arcgis/core/Map'
 import MapView from '@arcgis/core/views/MapView'
 import SceneView from '@arcgis/core/views/SceneView'
 import * as baseUtils from '@xizher/core/es/utils/base.utils'
-import Evented from '@xizher/core/es/evented'
+import Observable from '@xizher/core/es/observable'
 import LayerOperation from '../plugins/layer-operation/layer-operation'
 import MapCursor from '../plugins/map-cursor/map-cursor'
 import MapElementDisplay from '../plugins/map-element-display/map-element-display'
@@ -33,7 +33,7 @@ export interface IWebMapOptions {
 }
 
 /** WebMap类 */
-export class WebMap extends Evented<{
+export class WebMap extends Observable<{
   'loaded': void
 }> {
 

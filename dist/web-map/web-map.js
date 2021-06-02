@@ -2,10 +2,10 @@ import ArcGISMap from '@arcgis/core/Map';
 import MapView from '@arcgis/core/views/MapView';
 import SceneView from '@arcgis/core/views/SceneView';
 import * as baseUtils from '@xizher/core/es/utils/base.utils';
-import Evented from '@xizher/core/es/evented';
+import Observable from '@xizher/core/es/observable';
 import esriConfig from '@arcgis/core/config';
 /** WebMap类 */
-export class WebMap extends Evented {
+export class WebMap extends Observable {
     //#endregion
     //#region 构造函数
     /**

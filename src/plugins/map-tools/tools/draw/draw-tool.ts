@@ -9,7 +9,7 @@ import Polygon from '@arcgis/core/geometry/Polygon'
 import { IMapElementSymbol } from '../../../map-element-display/map-element-display'
 import Graphic from '@arcgis/core/Graphic'
 import * as baseUtils from '@xizher/core/es/utils/base.utils'
-import { ICallbackParams } from '@xizher/core/es/evented'
+import { ICallbackParams } from '@xizher/core/es/observable'
 import { MapCursorType } from '../../../map-cursor/map-cursor'
 import { createExtent } from '../../../../utilities/base.utilities'
 

@@ -1,11 +1,11 @@
-import Evented, { ICallbackParams } from '@xizher/core/es/evented';
+import Observable, { ICallbackParams } from '@xizher/core/es/observable';
 import { IMap, IView } from '../../web-map/web-map';
 export declare type OnToolActivedParams<T> = ICallbackParams<'tool-actived', T>;
 export declare type OnToolDeActivedParams<T> = ICallbackParams<'tool-deactived', T>;
 export declare type OnToolActivedReture = boolean;
 export declare type OnToolDeActivedReture = boolean;
 /** 基础工具类 */
-export declare class BaseTool<T = unknown> extends Evented<T & {
+export declare class BaseTool<T = unknown> extends Observable<T & {
     'tool-actived': void;
     'tool-deactived': void;
 }> {

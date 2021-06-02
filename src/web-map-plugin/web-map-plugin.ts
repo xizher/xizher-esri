@@ -1,8 +1,8 @@
-import Evented from '@xizher/core/es/evented'
+import Observable from '@xizher/core/es/observable'
 import WebMap, { IMap, IView } from '../web-map/web-map'
 
 /** WebMap插件类 */
-class WebMapPlugin<T> extends Evented<T> {
+class WebMapPlugin<T> extends Observable<T> {
 
   //#region 私有属性
 

@@ -4,7 +4,7 @@ import Geometry from '@arcgis/core/geometry/Geometry';
 import Point from '@arcgis/core/geometry/Point';
 import { IMapElementSymbol } from '../../../map-element-display/map-element-display';
 import Graphic from '@arcgis/core/Graphic';
-import { ICallbackParams } from '@xizher/core/es/evented';
+import { ICallbackParams } from '@xizher/core/es/observable';
 import { MapCursorType } from '../../../map-cursor/map-cursor';
 export declare type DrawType = 'point' | 'multipoint' | 'polyline' | 'polygon' | 'rectangle' | 'circle' | 'ellipse';
 export declare type OnDrawStartParams<T> = ICallbackParams<'draw-start', T> & {
