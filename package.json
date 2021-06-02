@@ -1,6 +1,6 @@
 {
   "name": "@xizher/esri",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "基于ArcGIS API for JavaScirpt的业务功能型二次开发地图API",
   "main": "dist/index.js",
   "scripts": {
