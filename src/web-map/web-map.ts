@@ -1,7 +1,6 @@
 import Basemap from '@arcgis/core/Basemap'
 import ArcGISMap from '@arcgis/core/Map'
 import MapView from '@arcgis/core/views/MapView'
-import SceneView from '@arcgis/core/views/SceneView'
 import * as baseUtils from '@xizher/core/es/utils/base.utils'
 import Observable from '@xizher/core/es/observable'
 import LayerOperation from '../plugins/layer-operation/layer-operation'
@@ -17,16 +16,12 @@ export interface IMap extends ArcGISMap {
 }
 
 /** 视图对象接口 */
-export type IView = (MapView | SceneView) & { $owner: WebMap }
-
-/** 地图模式 */
-export type Mode = '2d' | '3d'
+export type IView = MapView & { $owner: WebMap }
 
 /** WebMap配置项接口 */
 export interface IWebMapOptions {
-  mode?: Mode
   mapOptions?: __esri.MapProperties
-  viewOptions?: __esri.MapViewProperties | __esri.SceneViewProperties
+  viewOptions?: __esri.MapViewProperties
   debug?: boolean
   debugName?: string
   assetsPath?: string
@@ -60,7 +55,6 @@ export class WebMap extends Observable<{
 
   /** 配置项 */
   private _options: IWebMapOptions = {
-    mode: '2d',
     viewOptions: {
       center: [0, 0],
       zoom: 1,
@@ -118,9 +112,7 @@ export class WebMap extends Observable<{
     const { mapOptions, viewOptions, debug, debugName, assetsPath } = this._options
     esriConfig.assetsPath = assetsPath
     const map = new ArcGISMap(mapOptions)
-    const view = this._options.mode === '3d'
-      ? new SceneView({ ...(viewOptions as __esri.SceneViewProperties), map })
-      : new MapView({ ...viewOptions, map })
+    const view = new MapView({ ...viewOptions, map })
     this._view = Object.assign(view, { $owner: this })
     this._map = Object.assign(map, { $owner: this })
     if (debug) {
