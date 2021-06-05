@@ -1,5 +1,5 @@
-import Observable from '@xizher/core/es/observable'
 import { LayerOptions } from '../../utilities/layer.utilities'
+import WebMapPlugin from '../../web-map-plugin'
 
 export interface IBasemapOptions {
   defaultSelectedKey?: string
@@ -16,7 +16,7 @@ export interface IBasemapEvents {
   'change:visible': { visible: boolean }
 }
 
-export interface IBasemap extends Observable<IBasemapEvents> {
+export interface IBasemap extends WebMapPlugin<IBasemapEvents> {
   readonly selectedKey: string
   readonly visible: boolean
   readonly basemapKeys : string[]

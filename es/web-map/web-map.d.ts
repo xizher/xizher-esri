@@ -2,11 +2,13 @@ import { IWebMapPlugin } from '../web-map-plugin';
 import IWebMap, { IMap, IView, IWebMapEvents, IWebMapOptions } from './web-map.interfaces';
 import Observable from '@xizher/core/es/observable';
 import { IBasemap } from '../plugins/basemap';
+import { ILayerOperation } from '../plugins/layer-operation';
 /**
  * WebMap类
  */
 export declare class WebMap extends Observable<IWebMapEvents> implements IWebMap {
     basemap: IBasemap;
+    layerOperation: ILayerOperation;
     /**
      * 默认配置项
      */

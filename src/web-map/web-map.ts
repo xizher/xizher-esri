@@ -6,6 +6,7 @@ import ArcGISMap from '@arcgis/core/Map'
 import MapView from '@arcgis/core/views/MapView'
 import esriConfig from '@arcgis/core/config'
 import { IBasemap } from '../plugins/basemap'
+import { ILayerOperation } from '../plugins/layer-operation'
 
 /**
  * WebMap类
@@ -13,6 +14,7 @@ import { IBasemap } from '../plugins/basemap'
 export class WebMap extends Observable<IWebMapEvents> implements IWebMap {
 
   basemap: IBasemap
+  layerOperation: ILayerOperation
 
   //#region 私有静态属性
 

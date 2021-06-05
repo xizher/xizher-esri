@@ -8,6 +8,7 @@ import esriConfig from '@arcgis/core/config';
  */
 export class WebMap extends Observable {
     basemap;
+    layerOperation;
     //#region 私有静态属性
     /**
      * 默认配置项

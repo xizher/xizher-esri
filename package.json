@@ -4,7 +4,7 @@
   "description": "基于ArcGIS API for JavaScirpt的业务功能型二次开发地图API",
   "main": "es/index.js",
   "scripts": {
-    "copy": "npx ncp ./node_modules/@arcgis/core/assets ./test/src/assets",
+    "copy": "npx ncp ./node_modules/@arcgis/core/assets ./test/public/assets",
     "build:dev": "npx tsc -w",
     "build:test": "npx tsc -w --outDir ./test/src/esri",
     "build": "npx tsc"
