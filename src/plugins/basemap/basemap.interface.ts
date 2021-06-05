@@ -1,6 +1,13 @@
+import Observable from '@xizher/core/es/observable'
+import { LayerOptions } from '../../utilities/layer.utilities'
+
 export interface IBasemapOptions {
   defaultSelectedKey?: string
   visible?: boolean
+  customItems?: {
+    key: string
+    lyrs: Array<LayerOptions>
+  }[]
 }
 
 export interface IBasemapEvents {
@@ -9,7 +16,7 @@ export interface IBasemapEvents {
   'change:visible': { visible: boolean }
 }
 
-export interface IBasemap {
+export interface IBasemap extends Observable<IBasemapEvents> {
   readonly selectedKey: string
   readonly visible: boolean
   readonly basemapKeys : string[]

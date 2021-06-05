@@ -6,6 +6,7 @@
   "scripts": {
     "copy": "npx ncp ./node_modules/@arcgis/core/assets ./test/src/assets",
     "build:dev": "npx tsc -w",
+    "build:test": "npx tsc -w --outDir ./test/src/esri",
     "build": "npx tsc"
   },
   "repository": {

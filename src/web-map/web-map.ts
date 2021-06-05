@@ -5,14 +5,14 @@ import { $extend } from '@xizher/core/es/utils/base.utils'
 import ArcGISMap from '@arcgis/core/Map'
 import MapView from '@arcgis/core/views/MapView'
 import esriConfig from '@arcgis/core/config'
-import IBasemap from '../plugins/basemap/basemap.interface'
+import { IBasemap } from '../plugins/basemap'
 
 /**
  * WebMap类
  */
 export class WebMap extends Observable<IWebMapEvents> implements IWebMap {
 
-  basemap?: IBasemap
+  basemap: IBasemap
 
   //#region 私有静态属性
 
@@ -86,8 +86,9 @@ export class WebMap extends Observable<IWebMapEvents> implements IWebMap {
    * 构造WebMap对象
    * @param options 配置项
    */
-  constructor (options: IWebMapOptions = {}) {
+  constructor (target: string, options: IWebMapOptions = {}) {
     super()
+    this._target = target
     this
       ._initOptions(options)
       ._initMap()
@@ -175,7 +176,7 @@ export class WebMap extends Observable<IWebMapEvents> implements IWebMap {
    * @returns this
    */
   public mount () : this {
-    this._view.constraints = this._target
+    this._view.container = this._target as HTMLDivElement
     this.fire('loaded')
     return this
   }

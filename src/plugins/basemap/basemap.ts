@@ -4,6 +4,7 @@ import IBasemap, { IBasemapEvents, IBasemapOptions } from './basemap.interface'
 import Collection from '@arcgis/core/core/Collection'
 import { IWebMap } from '../../web-map'
 import createLayer from '../../utilities/layer.utilities'
+import EsriBasemap from '@arcgis/core/Basemap'
 
 const TIAN_DI_TU_KEY = 'd524142425d379adcf285daba823e28a'
 
@@ -39,6 +40,7 @@ export class Basemap extends WebMapPlugin<IBasemapEvents> implements IBasemap {
   private static readonly _defaultOptions: IBasemapOptions = {
     defaultSelectedKey: '天地图矢量3857',
     visible: true,
+    customItems: []
   }
 
   //#endregion
@@ -73,9 +75,13 @@ export class Basemap extends WebMapPlugin<IBasemapEvents> implements IBasemap {
   }
 
   private _init () : this {
+    if (!this.map_.basemap) {
+      this.map_.basemap = new EsriBasemap()
+    }
     return this
       ._initGeoQ()
       ._initTdt()
+      ._initCustomItems()
   }
 
   private _initGeoQ () : this {
@@ -94,11 +100,11 @@ export class Basemap extends WebMapPlugin<IBasemapEvents> implements IBasemap {
     const createTianDiTuItem = (name: string, proj: string) => {
       this.createBasemap(
         `天地图${name}${proj}`,
-        createLayer({ lyrType: 'WebTileLayer', urlTemplate: Basemap[`_TianDiTu${proj}Urls`][`${name}底图`] })
+        createLayer({ lyrType: 'WebTileLayer', urlTemplate: Basemap[`_tdt${proj}`][`${name}底图`] })
       )
       this.createBasemap(`天地图${name}含注记${proj}`, [
-        createLayer({ lyrType: 'WebTileLayer', urlTemplate: Basemap[`_TianDiTu${proj}Urls`][`${name}底图`] }),
-        createLayer({ lyrType: 'WebTileLayer', urlTemplate: Basemap[`_TianDiTu${proj}Urls`][`${name}注记`] }),
+        createLayer({ lyrType: 'WebTileLayer', urlTemplate: Basemap[`_tdt${proj}`][`${name}底图`] }),
+        createLayer({ lyrType: 'WebTileLayer', urlTemplate: Basemap[`_tdt${proj}`][`${name}注记`] }),
       ])
       return createTianDiTuItem
     }
@@ -106,9 +112,20 @@ export class Basemap extends WebMapPlugin<IBasemapEvents> implements IBasemap {
     return this
   }
 
+  private _initCustomItems () : this {
+    this._options.customItems.forEach(item => {
+      this.createBasemap(item.key, item.lyrs.map(
+        lyr => createLayer(lyr as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      ))
+    })
+    return this
+  }
+
   public installPlugin (webMap: IWebMap) : this {
     super.installPlugin(webMap)
     return this._init()
+      .setVisible(this._visible)
+      .selectBasemap(this._selectedKey)
   }
 
   public createBasemap (key: string, layer: __esri.Layer) : this
