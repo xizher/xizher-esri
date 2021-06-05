@@ -1,0 +1,32 @@
+import WebMapPlugin from '../../web-map-plugin';
+import IBasemap, { IBasemapEvents, IBasemapOptions } from './basemap.interface';
+import { IWebMap } from '../../web-map';
+export declare class Basemap extends WebMapPlugin<IBasemapEvents> implements IBasemap {
+    private static readonly _tdt3857;
+    private static readonly _tdt4326;
+    private static readonly _geoQ;
+    private static readonly _defaultOptions;
+    private _basemapItemPool;
+    private _selectedKey;
+    private _visible;
+    private _options;
+    get selectedKey(): string;
+    get visible(): boolean;
+    get basemapKeys(): string[];
+    constructor(options: IBasemapOptions);
+    private _init;
+    private _initGeoQ;
+    private _initTdt;
+    installPlugin(webMap: IWebMap): this;
+    createBasemap(key: string, layer: __esri.Layer): this;
+    createBasemap(key: string, layers: __esri.Layer[]): this;
+    createBasemap(layer: __esri.Layer): string;
+    createBasemap(layers: __esri.Layer[]): string;
+    createAndSelectBasemap(key: string, layer: __esri.Layer): this;
+    createAndSelectBasemap(key: string, layers: __esri.Layer[]): this;
+    createAndSelectBasemap(layer: __esri.Layer): string;
+    createAndSelectBasemap(layers: __esri.Layer[]): string;
+    selectBasemap(key: string): this;
+    setVisible(visible: boolean): this;
+}
+export default Basemap;
