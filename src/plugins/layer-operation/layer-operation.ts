@@ -16,11 +16,15 @@ export class LayerOperations extends WebMapPlugin<ILayerOperationEvent> implemen
 
   //#region 私有属性
 
-  private _options: ILayerOperationOptions
-
   private _layerPool: Map<string, [__esri.Layer, ILayerItemOptions]>
 
   private _groupLayer: __esri.GroupLayer
+
+  //#endregion
+
+  //#region 保护属性
+
+  private options_: ILayerOperationOptions
 
   //#endregion
 
@@ -28,8 +32,8 @@ export class LayerOperations extends WebMapPlugin<ILayerOperationEvent> implemen
 
   constructor (options: ILayerOperationOptions = {}) {
     super('layerOperation')
-    this._options = LayerOperations._defaultOptions
-    $extend(true, this._options, options)
+    this.options_ = LayerOperations._defaultOptions
+    $extend(true, this.options_, options)
     this._layerPool = new Map()
   }
 
@@ -44,7 +48,7 @@ export class LayerOperations extends WebMapPlugin<ILayerOperationEvent> implemen
   }
 
   private _initLayer () : this {
-    this._options.layerItem.forEach(item => {
+    this.options_.layerItem.forEach(item => {
       const layer = createLayer(item.target)
       this._groupLayer.add(layer)
       this._layerPool.set(item.name, [layer, item])

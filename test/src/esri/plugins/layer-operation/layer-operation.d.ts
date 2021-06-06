@@ -3,9 +3,9 @@ import WebMapPlugin from '../../web-map-plugin';
 import { ILayerOperation, ILayerOperationEvent, ILayerOperationOptions } from './layer-operations.interfaces';
 export declare class LayerOperations extends WebMapPlugin<ILayerOperationEvent> implements ILayerOperation {
     private static readonly _defaultOptions;
-    private _options;
     private _layerPool;
     private _groupLayer;
+    private options_;
     constructor(options?: ILayerOperationOptions);
     private _init;
     private _initLayer;

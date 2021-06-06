@@ -8,15 +8,17 @@ export class LayerOperations extends WebMapPlugin {
     };
     //#endregion
     //#region 私有属性
-    _options;
     _layerPool;
     _groupLayer;
+    //#endregion
+    //#region 保护属性
+    options_;
     //#endregion
     //#region 构造函数
     constructor(options = {}) {
         super('layerOperation');
-        this._options = LayerOperations._defaultOptions;
-        $extend(true, this._options, options);
+        this.options_ = LayerOperations._defaultOptions;
+        $extend(true, this.options_, options);
         this._layerPool = new Map();
     }
     //#endregion
@@ -27,7 +29,7 @@ export class LayerOperations extends WebMapPlugin {
         return this._initLayer();
     }
     _initLayer() {
-        this._options.layerItem.forEach(item => {
+        this.options_.layerItem.forEach(item => {
             const layer = createLayer(item.target);
             this._groupLayer.add(layer);
             this._layerPool.set(item.name, [layer, item]);
